@@ -4,6 +4,7 @@ const users = document.querySelector(".user-list");
 console.log(users);
 
 let userAr = [];
+let timer;
 
 const getUserData = async () => {
 	const res = await fetch("https://api.github.com/users");
@@ -32,9 +33,25 @@ const getUserData = async () => {
 
 getUserData();
 
+const debounceFunc = (cbFunc, delayMS = 300) => {
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			cbFunc.apply(this, args);
+		}, delayMS);
+	};
+};
+
+const getUser = (query) => {
+	userAr.filter((curDev) => {
+		curDev.innerText.toLowerCase().includes(query.toLowerCase())
+			? curDev.classList.remove("hide")
+			: curDev.classList.add("hide");
+	});
+};
+
 const debounceGetData = debounceFunc(getUser, 500);
 
-
 inputValue.addEventListener("keyup", (e) => {
-  debounceGetData(e.target.value);
-})
+	debounceGetData(e.target.value);
+});
