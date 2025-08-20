@@ -1,0 +1,83 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  padding: 10px;
+}
+
+p{
+  line-height: 1.6;
+}
+
+li{
+  width: 240px;
+  padding: 1rem;
+}
+
+input{
+  width: 250px;
+  height: 25px;
+  padding: 5px;
+}
+
+::placeholder{
+  font-family: "poppins";
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.user-info{
+  padding: 2rem;
+  height: 30rem;
+  overflow-y: auto;
+}
+
+.user-list{
+  /* width: 250px; */
+  /* background-color: aquamarine; */
+  height: 25px;
+  padding: 5px;
+  list-style: none;
+
+}
+
+.user-data{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  box-shadow: 1rem 1rem 5rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  width: 230px;
+}
+
+.user-data img{
+  max-width: 100%;
+  height: auto;
+  width: 6rem;
+  border-radius: 50%;
+}
+
+.user-data div{
+  text-align: start;
+}
+
+.user-data p{
+  text-transform: capitalize;
+}
+
+
+.hide{
+  display: none;
+}
