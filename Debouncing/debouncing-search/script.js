@@ -32,7 +32,9 @@ const getUserData = async () => {
 
 getUserData();
 
+const debounceGetData = debounceFunc(getUser, 500);
+
 
 inputValue.addEventListener("keyup", (e) => {
-  debounceUserData(e.target.value);
+  debounceGetData(e.target.value);
 })
