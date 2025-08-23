@@ -2,6 +2,7 @@ const userName = document.querySelector("#user");
 const users = document.querySelector(".user-list");
 
 let devArr = [];
+let timer;
 
 const getData = async () => {
 	const res = await fetch("https://api.github.com/users");
@@ -35,24 +36,23 @@ const getData = async () => {
 };
 
 getData();
-console.log(devArr);
-
-let timer;
 
 const debounce = (func, delayMs) => {
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, delayMs);
-  }
-}
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, delayMs);
+	};
+};
 
 const getUser = (query) => {
-  devArr.filter((curEle) => {
-    curEle.innerText.toLowerCase().includes(query.toLowerCase()) ? curEle.classList.remove("hide") : curEle.classList.add("hide")
-  })
-}
+	devArr.filter((curEle) => {
+		curEle.innerText.toLowerCase().includes(query.toLowerCase())
+			? curEle.classList.remove("hide")
+			: curEle.classList.add("hide");
+	});
+};
 
 const debounceDataGet = debounce(getUser, 500);
 
