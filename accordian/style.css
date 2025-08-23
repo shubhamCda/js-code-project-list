@@ -29,13 +29,14 @@
 }
 
 .icon{
+  cursor: pointer;
   margin-right: 5px;
   padding: 5px;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
 .icon.active{
-  transform: rotateY(-180deg);
+  transform: rotate(-180deg);
 }
 
 .question{
@@ -46,6 +47,8 @@
 }
 
 .answer{
-  height: 0;
+  max-height: 0;
   overflow: hidden;
+  transition: max-height 0.2s;
+  color: rgb(90, 90, 90);
 }
